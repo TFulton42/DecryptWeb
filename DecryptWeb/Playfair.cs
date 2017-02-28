@@ -70,9 +70,11 @@ namespace DecryptWeb
             }
         }
 
-        private static StringBuilder PrintKeyTable()
+        public static string PrintKeyTable(string keyStr)
         {
             var outStr = new StringBuilder();
+
+            BuildPlayfairKey(keyStr);
 
             for (var i = 0; i < 5; i++)
             {
@@ -89,7 +91,7 @@ namespace DecryptWeb
                 outStr.AppendLine();
             }
 
-            return outStr;
+            return outStr.ToString();
         }
 
         public static string PlayfairDecrypt(string inStr, string keyStr)
@@ -109,11 +111,15 @@ namespace DecryptWeb
                     continue;
                 }
                 var c1 = char.ToUpper(inStr[inStrIndex++]) - 'A';
+                if (c1 == 'J' - 'A')
+                    c1 = 'I' - 'A';
                 while (inStrIndex < inStr.Length && !char.IsLetter(inStr[inStrIndex]))
                     inStrIndex++;
                 if (inStrIndex >= inStr.Length)
                     break;
                 var c2 = char.ToUpper(inStr[inStrIndex++]) - 'A';
+                if (c2 == 'J' - 'A')
+                    c2 = 'I' - 'A';
 
                 if (_keyTable[c1].row == _keyTable[c2].row)
                 {
@@ -206,13 +212,17 @@ namespace DecryptWeb
                     continue;
                 }
                 var c1 = char.ToUpper(inStr[inStrIndex++]) - 'A';
+                if (c1 == 'J' - 'A')
+                    c1 = 'I' - 'A';
                 while (inStrIndex < inStr.Length && !Char.IsLetter(inStr[inStrIndex]))
                     inStrIndex++;
                 int c2;
                 if (inStrIndex >= inStr.Length)
                     c2 = 'X' - 'A';
                 else
-                    c2 = Char.ToUpper(inStr[inStrIndex++]) - 'A';
+                    c2 = char.ToUpper(inStr[inStrIndex++]) - 'A';
+                if (c2 == 'J' - 'A')
+                    c2 = 'I' - 'A';
                 if (c1 == c2) // Have to add a pad since the characters are the same.
                 {
                     if (c1 == 'X' - 'A')

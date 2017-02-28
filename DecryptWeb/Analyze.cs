@@ -31,6 +31,11 @@ namespace DecryptWeb
         {
             private static readonly List<DecryptObj> DecryptList = new List<DecryptObj>();
 
+            public DecryptObjList()
+            {
+                DecryptList.Clear();
+            }
+
             public static void AddObj(DecryptObj obj)
             {
                 DecryptList.Add(obj);
@@ -46,7 +51,7 @@ namespace DecryptWeb
                 {
                     outStr.AppendFormat("{0} (Number of matches {1}): {2}\n", item.Key, item.NumMatches, item.DecryptStr);
                 }
-                return outStr.ToString();
+                return outStr.ToString() + "\nDone.";
             }
         }
 
@@ -92,7 +97,7 @@ namespace DecryptWeb
                     DecryptObjList.AddObj(new DecryptObj(keyStr, count, decryptStr));
                 }
             }
-            return decryptList.BuildList() + "\nDone.";
+            return decryptList.BuildList();
         }
 
         public static string AnalyzeKeyGuess(string inStr, string keyGuess)

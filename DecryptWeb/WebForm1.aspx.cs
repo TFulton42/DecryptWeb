@@ -266,6 +266,9 @@ namespace DecryptWeb
                         case "Playfair Cipher":
                             TextBox2.Text = Playfair.PlayfairDecrypt(TextBox1.Text, TextBox3.Text);
                             break;
+                        case "Playfair Key Square":
+                            TextBox2.Text = Playfair.PrintKeyTable(TextBox3.Text);
+                            break;
                         case "Homophonic Cipher (4 Char Key)":
                             TextBox2.Text = "Homophonic Cipher Decrypt not implemented";
                             break;
@@ -586,6 +589,7 @@ namespace DecryptWeb
                     DropDownList2.Items.Add("Baconian Cipher - 26 letter alphabet");
                     DropDownList2.Items.Add("Bacon's Biliteral - lower case == A");
                     DropDownList2.Items.Add("Playfair Cipher");
+                    DropDownList2.Items.Add("Playfair Key Square");
                     DropDownList2.Items.Add("Homophonic Cipher (4 Char Key)");
                     DropDownList2.Items.Add("Homophonic Cipher Guesser");
                     DropDownList2.SelectedIndex = 0;
