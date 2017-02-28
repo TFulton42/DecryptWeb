@@ -92,7 +92,7 @@ namespace DecryptWeb
                     DecryptObjList.AddObj(new DecryptObj(keyStr, count, decryptStr));
                 }
             }
-            return decryptList.BuildList();
+            return decryptList.BuildList() + "\nDone.";
         }
 
         public static string AnalyzeKeyGuess(string inStr, string keyGuess)
