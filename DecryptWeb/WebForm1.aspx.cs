@@ -22,6 +22,7 @@ namespace DecryptWeb
             DropDownList1.Items.Add("ASCII Tools");
             DropDownList1.Items.Add("Vigenere Tools");
             DropDownList1.Items.Add("Morse Code Tools");
+            DropDownList1.Items.Add("Bacon Ciphers");
             DropDownList1.Items.Add("Miscellaneous Ciphers");
             DropDownList1.Items.Add("Tools");
             DropDownList1.Items.Add("Analyze Code");
@@ -60,6 +61,7 @@ namespace DecryptWeb
             DropDownList3.Items.Add("Caesar Tools");
             DropDownList3.Items.Add("Vigenere Tools");
             DropDownList3.Items.Add("Morse Code Tools");
+            DropDownList3.Items.Add("Bacon Ciphers");
             DropDownList3.Items.Add("Miscellaneous Ciphers");
             DropDownList3.SelectedIndex = 0;
 
@@ -248,6 +250,26 @@ namespace DecryptWeb
                             break;
                     }
                     break;
+                case "Bacon Ciphers":
+                    switch (DropDownList2.Text)
+                    {
+                        case "Baconian Cipher - 26 letter alphabet":
+                            TextBox2.Text = BaconianTools.BaconianDecode(TextBox1.Text, true);
+                            break;
+                        case "Baconian Cipher - 24 letter alphabet":
+                            TextBox2.Text = BaconianTools.BaconianDecode(TextBox1.Text, false);
+                            break;
+                        case "Bacon's Biliteral (26) - lower case == A":
+                            TextBox2.Text = BaconianTools.BaconBiliteralDecode(TextBox1.Text, true);
+                            break;
+                        case "Bacon's Biliteral (24) - lower case == A":
+                            TextBox2.Text = BaconianTools.BaconBiliteralDecode(TextBox1.Text, false);
+                            break;
+                        default:
+                            TextBox2.Text = "Unknown Bacon Cipher option";
+                            break;
+                    }
+                    break;
                 case "Miscellaneous Ciphers":
                     switch (DropDownList2.Text)
                     {
@@ -256,12 +278,6 @@ namespace DecryptWeb
                             break;
                         case "Basic Typewriter":
                             TextBox2.Text = "Basic Typewriter Decrypt not implemented";
-                            break;
-                        case "Baconian Cipher - 26 letter alphabet":
-                            TextBox2.Text = BaconianTools.BaconianDecode(TextBox1.Text);
-                            break;
-                        case "Bacon's Biliteral - lower case == A":
-                            TextBox2.Text = BaconianTools.BaconBiliteralDecode(TextBox1.Text);
                             break;
                         case "Playfair Cipher":
                             TextBox2.Text = Playfair.PlayfairDecrypt(TextBox1.Text, TextBox3.Text);
@@ -468,6 +484,26 @@ namespace DecryptWeb
                             break;
                     }
                     break;
+                case "Bacon Ciphers":
+                    switch (DropDownList4.Text)
+                    {
+                        case "Baconian Cipher - 26 letter alphabet":
+                            TextBox2.Text = BaconianTools.BaconianEncode(TextBox1.Text, true);
+                            break;
+                        case "Baconian Cipher - 24 letter alphabet":
+                            TextBox2.Text = BaconianTools.BaconianEncode(TextBox1.Text, false);
+                            break;
+                        case "Bacon's Biliteral (26) - lower case == A":
+                            TextBox2.Text = BaconianTools.BaconBiliteralEncode(TextBox1.Text, true);
+                            break;
+                        case "Bacon's Biliteral (24) - lower case == A":
+                            TextBox2.Text = BaconianTools.BaconBiliteralEncode(TextBox1.Text, false);
+                            break;
+                        default:
+                            TextBox2.Text = "Unknown Bacon Cipher option";
+                            break;
+                    }
+                    break;
                 case "Miscellaneous Ciphers":
                     switch (DropDownList4.Text)
                     {
@@ -476,9 +512,6 @@ namespace DecryptWeb
                             break;
                         case "Basic Typewriter":
                             TextBox2.Text = "Basic Typewriter Encrypt not implemented";
-                            break;
-                        case "Bacon's Biliteral - lower case == A":
-                            TextBox2.Text = "Bacon's Biliteral Encrypt not implemented";
                             break;
                         case "Playfair Cipher":
                             TextBox2.Text = Playfair.PlayfairEncrypt(TextBox1.Text, TextBox3.Text);
@@ -583,11 +616,16 @@ namespace DecryptWeb
                     DropDownList2.Items.Add("Fractionated Morse Decrypt");
                     DropDownList2.SelectedIndex = 0;
                     break;
+                case "Bacon Ciphers":
+                    DropDownList2.Items.Add("Baconian Cipher - 26 letter alphabet");
+                    DropDownList2.Items.Add("Baconian Cipher - 24 letter alphabet");
+                    DropDownList2.Items.Add("Bacon's Biliteral (26) - lower case == A");
+                    DropDownList2.Items.Add("Bacon's Biliteral (24) - lower case == A");
+                    DropDownList2.SelectedIndex = 0;
+                    break;
                 case "Miscellaneous Ciphers":
                     DropDownList2.Items.Add("Keyword Cipher");
                     DropDownList2.Items.Add("Basic Typewriter");
-                    DropDownList2.Items.Add("Baconian Cipher - 26 letter alphabet");
-                    DropDownList2.Items.Add("Bacon's Biliteral - lower case == A");
                     DropDownList2.Items.Add("Playfair Cipher");
                     DropDownList2.Items.Add("Playfair Key Square");
                     DropDownList2.Items.Add("Homophonic Cipher (4 Char Key)");
@@ -661,11 +699,15 @@ namespace DecryptWeb
                     DropDownList4.Items.Add("Fractionated Morse Encrypt");
                     DropDownList4.SelectedIndex = 0;
                     break;
+                case "Bacon Ciphers":
+                    DropDownList4.Items.Add("Baconian Cipher - 26 letter alphabet");
+                    DropDownList4.Items.Add("Baconian Cipher - 24 letter alphabet");
+                    DropDownList4.Items.Add("Bacon's Biliteral (26) - lower case == A");
+                    DropDownList4.Items.Add("Bacon's Biliteral (24) - lower case == A");
+                    break;
                 case "Miscellaneous Ciphers":
                     DropDownList4.Items.Add("Keyword Cipher");
                     DropDownList4.Items.Add("Basic Typewriter");
-                    DropDownList4.Items.Add("Baconian Cipher - 26 letter alphabet");
-                    DropDownList4.Items.Add("Bacon's Biliteral - lower case == A");
                     DropDownList4.Items.Add("Playfair Cipher");
                     DropDownList4.Items.Add("Homophonic Cipher (4 Char Key)");
                     DropDownList4.SelectedIndex = 0;
