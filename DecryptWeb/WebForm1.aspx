@@ -86,6 +86,7 @@
         <a href="http://www.braingle.com/brainteasers/codes/" target="_blank">Braingle</a><br/>
         <a href="http://www.dcode.fr/enigma-machine-cipher" target="_blank">Enigma</a><br/>
         <a href="http://www.cryptogram.org/resources/cipher-types/" target="_blank">American Cryptogram Association Resources</a><br/>
+        <a href="http://www.simonsingh.net/The_Black_Chamber/chamberguide.html" target="_blank">The Black Chamber</a><br/>
     
     </div>
     </form>

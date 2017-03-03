@@ -276,20 +276,17 @@ namespace DecryptWeb
                         case "Keyword Cipher":
                             TextBox2.Text = Miscellaneous.KeywordCipherDecode(TextBox1.Text, TextBox3.Text, TextBox6.Text);
                             break;
-                        case "Basic Typewriter":
-                            TextBox2.Text = "Basic Typewriter Decrypt not implemented";
-                            break;
                         case "Playfair Cipher":
                             TextBox2.Text = Playfair.PlayfairDecrypt(TextBox1.Text, TextBox3.Text);
                             break;
                         case "Playfair Key Square":
                             TextBox2.Text = Playfair.PrintKeyTable(TextBox3.Text);
                             break;
-                        case "Homophonic Cipher (4 Char Key)":
-                            TextBox2.Text = "Homophonic Cipher Decrypt not implemented";
+                        case "One Time Pad":
+                            TextBox2.Text = OneTimePadTools.OneTimePadDecrypt(TextBox1.Text, TextBox3.Text);
                             break;
-                        case "Homophonic Cipher Guesser":
-                            TextBox2.Text = "Homophonic Cipher Guesser not implemented";
+                        case "One Time Pad Key Guesser":
+                            TextBox2.Text = OneTimePadTools.OneTimePadKeyGuesser(TextBox1.Text, TextBox3.Text);
                             break;
                         default:
                             TextBox2.Text = "Unknown Miscellaneous Code option";
@@ -510,14 +507,11 @@ namespace DecryptWeb
                         case "Keyword Cipher":
                             TextBox2.Text = Miscellaneous.KeywordCipherEncode(TextBox1.Text, TextBox3.Text, TextBox6.Text);
                             break;
-                        case "Basic Typewriter":
-                            TextBox2.Text = "Basic Typewriter Encrypt not implemented";
-                            break;
                         case "Playfair Cipher":
                             TextBox2.Text = Playfair.PlayfairEncrypt(TextBox1.Text, TextBox3.Text);
                             break;
-                        case "Homophonic Cipher (4 Char Key)":
-                            TextBox2.Text = "Homophonic Cipher Encrypt not implemented";
+                        case "One Time Pad":
+                            TextBox2.Text = OneTimePadTools.OneTimePadEncrypt(TextBox1.Text, TextBox3.Text);
                             break;
                         default:
                             TextBox2.Text = "Unknown Miscellaneous Code option";
@@ -625,11 +619,10 @@ namespace DecryptWeb
                     break;
                 case "Miscellaneous Ciphers":
                     DropDownList2.Items.Add("Keyword Cipher");
-                    DropDownList2.Items.Add("Basic Typewriter");
                     DropDownList2.Items.Add("Playfair Cipher");
                     DropDownList2.Items.Add("Playfair Key Square");
-                    DropDownList2.Items.Add("Homophonic Cipher (4 Char Key)");
-                    DropDownList2.Items.Add("Homophonic Cipher Guesser");
+                    DropDownList2.Items.Add("One Time Pad");
+                    DropDownList2.Items.Add("One Time Pad Key Guesser");
                     DropDownList2.SelectedIndex = 0;
                     break;
                 case "Tools":
@@ -707,9 +700,8 @@ namespace DecryptWeb
                     break;
                 case "Miscellaneous Ciphers":
                     DropDownList4.Items.Add("Keyword Cipher");
-                    DropDownList4.Items.Add("Basic Typewriter");
                     DropDownList4.Items.Add("Playfair Cipher");
-                    DropDownList4.Items.Add("Homophonic Cipher (4 Char Key)");
+                    DropDownList4.Items.Add("One Time Pad");
                     DropDownList4.SelectedIndex = 0;
                     break;
                 default:
