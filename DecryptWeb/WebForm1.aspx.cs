@@ -92,6 +92,9 @@ namespace DecryptWeb
             DropDownList4.Items.Add("ROT-24");
             DropDownList4.Items.Add("ROT-25");
             DropDownList4.SelectedIndex = 12;
+
+            DropDownList5.Items.Clear();
+            DropDownList6.Items.Clear();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -253,17 +256,31 @@ namespace DecryptWeb
                 case "Bacon Ciphers":
                     switch (DropDownList2.Text)
                     {
-                        case "Baconian Cipher - 26 letter alphabet":
-                            TextBox2.Text = BaconianTools.BaconianDecode(TextBox1.Text, true);
+                        case "Baconian Cipher":
+                            switch (DropDownList5.Text)
+                            {
+                                case "24 letter alphabet":
+                                    TextBox2.Text = BaconianTools.BaconianDecode(TextBox1.Text, false);
+                                    break;
+                                case "26 letter alphabet":
+                                    TextBox2.Text = BaconianTools.BaconianDecode(TextBox1.Text, true);
+                                    break;
+                                default:
+                                    break;
+                            }
                             break;
-                        case "Baconian Cipher - 24 letter alphabet":
-                            TextBox2.Text = BaconianTools.BaconianDecode(TextBox1.Text, false);
-                            break;
-                        case "Bacon's Biliteral (26) - lower case == A":
-                            TextBox2.Text = BaconianTools.BaconBiliteralDecode(TextBox1.Text, true);
-                            break;
-                        case "Bacon's Biliteral (24) - lower case == A":
-                            TextBox2.Text = BaconianTools.BaconBiliteralDecode(TextBox1.Text, false);
+                        case "Bacon's Biliteral - lower case == A":
+                            switch (DropDownList5.Text)
+                            {
+                                case "24 letter alphabet":
+                                    TextBox2.Text = BaconianTools.BaconBiliteralDecode(TextBox1.Text, false);
+                                    break;
+                                case "26 letter alphabet":
+                                    TextBox2.Text = BaconianTools.BaconBiliteralDecode(TextBox1.Text, true);
+                                    break;
+                                default:
+                                    break;
+                            }
                             break;
                         default:
                             TextBox2.Text = "Unknown Bacon Cipher option";
@@ -484,17 +501,31 @@ namespace DecryptWeb
                 case "Bacon Ciphers":
                     switch (DropDownList4.Text)
                     {
-                        case "Baconian Cipher - 26 letter alphabet":
-                            TextBox2.Text = BaconianTools.BaconianEncode(TextBox1.Text, true);
+                        case "Baconian Cipher":
+                            switch (DropDownList6.Text)
+                            {
+                                case "24 letter alphabet":
+                                    TextBox2.Text = BaconianTools.BaconianEncode(TextBox1.Text, false);
+                                    break;
+                                case "26 letter alphabet":
+                                    TextBox2.Text = BaconianTools.BaconianEncode(TextBox1.Text, true);
+                                    break;
+                                default:
+                                    break;
+                            }
                             break;
-                        case "Baconian Cipher - 24 letter alphabet":
-                            TextBox2.Text = BaconianTools.BaconianEncode(TextBox1.Text, false);
-                            break;
-                        case "Bacon's Biliteral (26) - lower case == A":
-                            TextBox2.Text = BaconianTools.BaconBiliteralEncode(TextBox1.Text, true);
-                            break;
-                        case "Bacon's Biliteral (24) - lower case == A":
-                            TextBox2.Text = BaconianTools.BaconBiliteralEncode(TextBox1.Text, false);
+                        case "Bacon's Biliteral - lower case == A":
+                            switch (DropDownList6.Text)
+                            {
+                                case "24 letter alphabet":
+                                    TextBox2.Text = BaconianTools.BaconBiliteralEncode(TextBox1.Text, false);
+                                    break;
+                                case "26 letter alphabet":
+                                    TextBox2.Text = BaconianTools.BaconBiliteralEncode(TextBox1.Text, true);
+                                    break;
+                                default:
+                                    break;
+                            }
                             break;
                         default:
                             TextBox2.Text = "Unknown Bacon Cipher option";
@@ -556,6 +587,7 @@ namespace DecryptWeb
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
             DropDownList2.Items.Clear();
+            DropDownList5.Items.Clear();
             switch (DropDownList1.Text)
             {
                 case "Caesar Tools":
@@ -611,11 +643,12 @@ namespace DecryptWeb
                     DropDownList2.SelectedIndex = 0;
                     break;
                 case "Bacon Ciphers":
-                    DropDownList2.Items.Add("Baconian Cipher - 26 letter alphabet");
-                    DropDownList2.Items.Add("Baconian Cipher - 24 letter alphabet");
-                    DropDownList2.Items.Add("Bacon's Biliteral (26) - lower case == A");
-                    DropDownList2.Items.Add("Bacon's Biliteral (24) - lower case == A");
+                    DropDownList2.Items.Add("Baconian Cipher");
+                    DropDownList2.Items.Add("Bacon's Biliteral - lower case == A");
                     DropDownList2.SelectedIndex = 0;
+                    DropDownList5.Items.Add("24 letter alphabet");
+                    DropDownList5.Items.Add("26 letter alphabet");
+                    DropDownList5.SelectedIndex = 0;
                     break;
                 case "Miscellaneous Ciphers":
                     DropDownList2.Items.Add("Keyword Cipher");
@@ -653,6 +686,7 @@ namespace DecryptWeb
         protected void DropDownList3_SelectedIndexChanged(object sender, EventArgs e)
         {
             DropDownList4.Items.Clear();
+            DropDownList6.Items.Clear();
             switch (DropDownList3.Text)
             {
                 case "Caesar Tools":
@@ -693,16 +727,50 @@ namespace DecryptWeb
                     DropDownList4.SelectedIndex = 0;
                     break;
                 case "Bacon Ciphers":
-                    DropDownList4.Items.Add("Baconian Cipher - 26 letter alphabet");
-                    DropDownList4.Items.Add("Baconian Cipher - 24 letter alphabet");
-                    DropDownList4.Items.Add("Bacon's Biliteral (26) - lower case == A");
-                    DropDownList4.Items.Add("Bacon's Biliteral (24) - lower case == A");
+                    DropDownList4.Items.Add("Baconian Cipher");
+                    DropDownList4.Items.Add("Bacon's Biliteral - lower case == A");
+                    DropDownList4.SelectedIndex = 0;
+                    DropDownList6.Items.Add("24 letter alphabet");
+                    DropDownList6.Items.Add("26 letter alphabet");
+                    DropDownList6.SelectedIndex = 0;
                     break;
                 case "Miscellaneous Ciphers":
                     DropDownList4.Items.Add("Keyword Cipher");
                     DropDownList4.Items.Add("Playfair Cipher");
                     DropDownList4.Items.Add("One Time Pad");
                     DropDownList4.SelectedIndex = 0;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownList5.Items.Clear();
+            switch (DropDownList2.Text)
+            {
+                case "Baconian Cipher":
+                case "Bacon's Biliteral - lower case == A":
+                    DropDownList5.Items.Add("24 letter alphabet");
+                    DropDownList5.Items.Add("26 letter alphabet");
+                    DropDownList5.SelectedIndex = 0;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        protected void DropDownList4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownList6.Items.Clear();
+            switch (DropDownList4.Text)
+            {
+                case "Baconian Cipher":
+                case "Bacon's Biliteral - lower case == A":
+                    DropDownList6.Items.Add("24 letter alphabet");
+                    DropDownList6.Items.Add("26 letter alphabet");
+                    DropDownList6.SelectedIndex = 0;
                     break;
                 default:
                     break;

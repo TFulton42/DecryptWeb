@@ -48,12 +48,15 @@
                         <ContentTemplate>
                             <asp:DropDownList ID="DropDownList1" runat="server" style="z-index: 1; margin-top: 40px; width: 200px" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="true">
                             </asp:DropDownList><br/>
-    
-                            <asp:DropDownList ID="DropDownList2" runat="server" style="z-index: 1; margin-top: 10px; width: 200px">
+
+                            <asp:DropDownList ID="DropDownList2" runat="server" style="z-index: 1; margin-top: 10px; width: 200px" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged" AutoPostBack="true">
                             </asp:DropDownList><br/>
+
+                            <asp:DropDownList ID="DropDownList5" runat="server" style="z-index: 1; margin-top: 10px; width: 200px">
+                            </asp:DropDownList><br/>
+
                         </ContentTemplate>
                     </asp:UpdatePanel>
-    
                     <asp:Button ID="Button1" runat="server" Text="Decrypt" OnClick="Button1_Click" style="z-index: 1; margin-top: 10px; width: 200px" /><br/>
     
                     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
@@ -61,8 +64,12 @@
                             <asp:DropDownList ID="DropDownList3" runat="server" style="z-index: 1; margin-top: 20px; width: 200px" OnSelectedIndexChanged="DropDownList3_SelectedIndexChanged" AutoPostBack="true">
                             </asp:DropDownList><br/>
     
-                            <asp:DropDownList ID="DropDownList4" runat="server" style="z-index: 1; margin-top: 10px; width: 200px">
+                            <asp:DropDownList ID="DropDownList4" runat="server" style="z-index: 1; margin-top: 10px; width: 200px" OnSelectedIndexChanged="DropDownList4_SelectedIndexChanged" AutoPostBack="true">
                             </asp:DropDownList><br/>
+
+                            <asp:DropDownList ID="DropDownList6" runat="server" style="z-index: 1; margin-top: 10px; width: 200px">
+                            </asp:DropDownList><br/>
+
                         </ContentTemplate>
                     </asp:UpdatePanel>
                     <asp:Button ID="Button2" runat="server" Text="Encrypt" style="z-index: 1; margin-top: 10px; width: 200px" OnClick="Button2_Click"/><br/>
