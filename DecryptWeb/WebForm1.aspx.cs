@@ -99,6 +99,8 @@ namespace DecryptWeb
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            int numRows;
+
             switch (DropDownList1.Text)
             {
                 case "Caesar Tools":
@@ -305,6 +307,10 @@ namespace DecryptWeb
                         case "One Time Pad Key Guesser":
                             TextBox2.Text = OneTimePadTools.OneTimePadKeyGuesser(TextBox1.Text, TextBox3.Text);
                             break;
+                        case "Rail Fence Cipher":
+                            numRows = DropDownList5.Text[0] - '0';
+                            TextBox2.Text = RailFence.RailFenceDecrypt(TextBox1.Text, numRows);
+                            break;
                         default:
                             TextBox2.Text = "Unknown Miscellaneous Code option";
                             break;
@@ -384,6 +390,7 @@ namespace DecryptWeb
 
         protected void Button2_Click(object sender, EventArgs e)
         {
+            int numRows;
 
             switch (DropDownList3.Text)
             {
@@ -544,6 +551,10 @@ namespace DecryptWeb
                         case "One Time Pad":
                             TextBox2.Text = OneTimePadTools.OneTimePadEncrypt(TextBox1.Text, TextBox3.Text);
                             break;
+                        case "Rail Fence Cipher":
+                            numRows = DropDownList6.Text[0] - '0';
+                            TextBox2.Text = RailFence.RailFenceEncrypt(TextBox1.Text, numRows);
+                            break;
                         default:
                             TextBox2.Text = "Unknown Miscellaneous Code option";
                             break;
@@ -656,6 +667,7 @@ namespace DecryptWeb
                     DropDownList2.Items.Add("Playfair Key Square");
                     DropDownList2.Items.Add("One Time Pad");
                     DropDownList2.Items.Add("One Time Pad Key Guesser");
+                    DropDownList2.Items.Add("Rail Fence Cipher");
                     DropDownList2.SelectedIndex = 0;
                     break;
                 case "Tools":
@@ -738,6 +750,7 @@ namespace DecryptWeb
                     DropDownList4.Items.Add("Keyword Cipher");
                     DropDownList4.Items.Add("Playfair Cipher");
                     DropDownList4.Items.Add("One Time Pad");
+                    DropDownList4.Items.Add("Rail Fence Cipher");
                     DropDownList4.SelectedIndex = 0;
                     break;
                 default:
@@ -756,6 +769,14 @@ namespace DecryptWeb
                     DropDownList5.Items.Add("26 letter alphabet");
                     DropDownList5.SelectedIndex = 0;
                     break;
+                case "Rail Fence Cipher":
+                    DropDownList5.Items.Add("3 rows");
+                    DropDownList5.Items.Add("4 rows");
+                    DropDownList5.Items.Add("5 rows");
+                    DropDownList5.Items.Add("6 rows");
+                    DropDownList5.Items.Add("7 rows");
+                    DropDownList5.SelectedIndex = 0;
+                    break;
                 default:
                     break;
             }
@@ -770,6 +791,14 @@ namespace DecryptWeb
                 case "Bacon's Biliteral - lower case == A":
                     DropDownList6.Items.Add("24 letter alphabet");
                     DropDownList6.Items.Add("26 letter alphabet");
+                    DropDownList6.SelectedIndex = 0;
+                    break;
+                case "Rail Fence Cipher":
+                    DropDownList6.Items.Add("3 rows");
+                    DropDownList6.Items.Add("4 rows");
+                    DropDownList6.Items.Add("5 rows");
+                    DropDownList6.Items.Add("6 rows");
+                    DropDownList6.Items.Add("7 rows");
                     DropDownList6.SelectedIndex = 0;
                     break;
                 default:

@@ -87,6 +87,7 @@ namespace DecryptWeb
         {
             var decryptList = new DecryptObjList();
 
+            // Try the Caesar Ciphers
             for (var i = 1; i < 26; i++)
             {
                 var decryptStr = CaesarTools.RotNDecrypt(i, inStr);
@@ -97,6 +98,19 @@ namespace DecryptWeb
                     DecryptObjList.AddObj(new DecryptObj(keyStr, count, decryptStr));
                 }
             }
+
+            // Now try the Rail Fence Ciphers
+            for (var i = 3; i < 7; i++)
+            {
+                var decryptStr = RailFence.RailFenceDecrypt(inStr, i);
+                var count = NumberOfLibraryMatches(decryptStr);
+                if (count >= PositiveMatchCount)
+                {
+                    var keyStr = "Rail Fence-" + i;
+                    DecryptObjList.AddObj(new DecryptObj(keyStr, count, decryptStr));
+                }
+            }
+
             return decryptList.BuildList();
         }
 
